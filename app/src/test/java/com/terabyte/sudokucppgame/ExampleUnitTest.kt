@@ -1,4 +1,4 @@
-package com.terabyte.sudokucpp
+package com.terabyte.sudokucppgame
 
 import org.junit.Test
 
