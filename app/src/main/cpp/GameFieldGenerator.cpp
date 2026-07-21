@@ -1,4 +1,4 @@
-#include "../../include/game/GameFieldGenerator.hpp"
+#include "GameFieldGenerator.hpp"
 #include <vector>
 #include <algorithm>
 #include <functional>

@@ -1,5 +1,4 @@
-#include "../../include/game/GameCell.hpp"
-
+#include "GameCell.hpp"
 #include <ostream>
 
 int GameCell::getValue() const {
