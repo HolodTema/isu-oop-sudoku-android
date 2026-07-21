@@ -24,4 +24,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "SudokuCppGame"
 include(":app")
- 
+include(":core:domain")
+include(":core:data")
+include(":core:ui")
+include(":feature:mainmenu")
+include(":feature:game")
+include(":feature:victory")
