@@ -1,4 +1,4 @@
-package com.terabyte.sudokucppgame
+package com.terabyte.sudokucppgame.core.data
 
 class SudokuNative {
     init {

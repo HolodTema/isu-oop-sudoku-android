@@ -30,7 +30,7 @@ void throwJavaException(JNIEnv *env, const std::exception &e) {
 }
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_com_terabyte_sudokucppgame_SudokuNative_createGame(JNIEnv *env, jobject thiz, jint difficulty) {
+Java_com_terabyte_sudokucppgame_core_data_SudokuNative_createGame(JNIEnv *env, jobject thiz, jint difficulty) {
     try {
         GameHandler *handler = new GameHandler(static_cast<GameDifficulty>(difficulty));
         return reinterpret_cast<jlong>(handler);
@@ -42,7 +42,7 @@ Java_com_terabyte_sudokucppgame_SudokuNative_createGame(JNIEnv *env, jobject thi
 }
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_com_terabyte_sudokucppgame_SudokuNative_makeTurn(JNIEnv *env, jobject thiz, jlong ptr, jint row,
+Java_com_terabyte_sudokucppgame_core_data_SudokuNative_makeTurn(JNIEnv *env, jobject thiz, jlong ptr, jint row,
                                                   jint column, jint value) {
     GameHandler* handler = reinterpret_cast<GameHandler*>(ptr);
     try {
@@ -57,19 +57,19 @@ Java_com_terabyte_sudokucppgame_SudokuNative_makeTurn(JNIEnv *env, jobject thiz,
 
 
 extern "C" JNIEXPORT jint JNICALL
-Java_com_terabyte_sudokucppgame_SudokuNative_getMistakes(JNIEnv* env, jobject thiz, jlong ptr) {
+Java_com_terabyte_sudokucppgame_core_data_SudokuNative_getMistakes(JNIEnv* env, jobject thiz, jlong ptr) {
     GameHandler* handler = reinterpret_cast<GameHandler*>(ptr);
     return handler->getAmountMistakes();
 }
 
 extern "C" JNIEXPORT jboolean JNICALL
-Java_com_terabyte_sudokucppgame_SudokuNative_isVictory(JNIEnv* env, jobject thiz, jlong ptr) {
+Java_com_terabyte_sudokucppgame_core_data_SudokuNative_isVictory(JNIEnv* env, jobject thiz, jlong ptr) {
     GameHandler* handler = reinterpret_cast<GameHandler*>(ptr);
     return handler->isVictory() ? JNI_TRUE : JNI_FALSE;
 }
 
 extern "C" JNIEXPORT jintArray JNICALL
-Java_com_terabyte_sudokucppgame_SudokuNative_getPuzzleField(JNIEnv* env, jobject thiz, jlong ptr) {
+Java_com_terabyte_sudokucppgame_core_data_SudokuNative_getPuzzleField(JNIEnv* env, jobject thiz, jlong ptr) {
     GameHandler* handler = reinterpret_cast<GameHandler*>(ptr);
     GameField gameField = handler->getGameFieldPuzzle();
     jintArray arrayResult = env->NewIntArray(81);
@@ -84,7 +84,7 @@ Java_com_terabyte_sudokucppgame_SudokuNative_getPuzzleField(JNIEnv* env, jobject
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_com_terabyte_sudokucppgame_SudokuNative_deleteGame(JNIEnv* env, jobject thiz, jlong ptr) {
+Java_com_terabyte_sudokucppgame_core_data_SudokuNative_deleteGame(JNIEnv* env, jobject thiz, jlong ptr) {
     GameHandler* handler = reinterpret_cast<GameHandler*>(ptr);
     delete handler;
 }
