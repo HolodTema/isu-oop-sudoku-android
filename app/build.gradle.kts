@@ -8,9 +8,7 @@ plugins {
 android {
     namespace = "com.terabyte.sudokucppgame"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {
@@ -42,6 +40,13 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:domain"))
+    implementation(project(":core:data"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:mainmenu"))
+    implementation(project(":feature:game"))
+    implementation(project(":feature:victory"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
