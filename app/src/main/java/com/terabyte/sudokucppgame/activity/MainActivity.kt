@@ -1,5 +1,6 @@
 package com.terabyte.sudokucppgame.activity
 
+import VictoryScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -45,8 +46,25 @@ class MainActivity : ComponentActivity() {
                         }
                         GameScreen(difficulty, navController)
                     }
-                    composable("victory") {
-//                        VictoryScreen()
+                    composable(
+                        route = "victory/{difficulty}/{amountMistakes}",
+                        arguments = listOf(
+                            navArgument("difficulty") {
+                                type = NavType.StringType
+                            },
+                            navArgument("amountMistakes") {
+                                type = NavType.IntType
+                            }
+                        )
+                    ) { backStackEntry ->
+                        val strDifficulty = backStackEntry.arguments?.getString("difficulty")
+                        val difficulty = if (strDifficulty == null) {
+                            GameDifficulty.EASY
+                        } else {
+                            GameDifficulty.valueOf(strDifficulty)
+                        }
+                        val amountMistakes = backStackEntry.arguments?.getInt("amountMistakes") ?: 0
+                        VictoryScreen(difficulty, amountMistakes, navController)
                     }
                 }
             }
