@@ -9,14 +9,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -28,7 +29,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.terabyte.panopticum.core.ui.component.button.AppIconButton
 import com.terabyte.panopticum.core.ui.component.button.PrimaryButton
@@ -42,7 +42,6 @@ import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.core.domain.model.GameField
 import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
-import com.terabyte.sudokucppgame.feature.game.screen.GameCellBox
 import com.terabyte.sudokucppgame.feature.game.viewmodel.GameViewModel
 
 @Composable
@@ -95,7 +94,12 @@ fun GameScreen(
             chosenColumn = state.chosenColumn,
             gameField = state.field
         ) { gameCell ->
-            viewModel.handleIntent(GameIntent.OnChooseRowAndColumnIntent(gameCell.row, gameCell.column))
+            viewModel.handleIntent(
+                GameIntent.OnChooseRowAndColumnIntent(
+                    gameCell.row,
+                    gameCell.column
+                )
+            )
         }
 
         GameFooter { value ->
@@ -131,7 +135,12 @@ fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClic
 
 
 @Composable
-fun GameGrid(chosenRow: Int, chosenColumn: Int, gameField: GameField, onGameCellClick: (GameCell)->Unit) {
+fun GameGrid(
+    chosenRow: Int,
+    chosenColumn: Int,
+    gameField: GameField,
+    onGameCellClick: (GameCell) -> Unit
+) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -147,7 +156,16 @@ fun GameGrid(chosenRow: Int, chosenColumn: Int, gameField: GameField, onGameCell
                     GameCellBox(
                         gameCell = gameField[row, column],
                         chosenRow = chosenRow,
+                        isLightGray = (
+                                (row in 0..2 && column in 0..2) ||
+                                        (row in 0..2 && column in 6..8) ||
+                                        (row in 3..5 && column in 3..5) ||
+                                        (row in 6..8 && column in 0..2) ||
+                                        (row in 6..8 && column in 6..8)
+                                ),
                         chosenColumn = chosenColumn,
+                        modifier = Modifier
+                            .weight(1f)
                     ) {
                         onGameCellClick(gameField[row, column])
                     }
@@ -159,14 +177,23 @@ fun GameGrid(chosenRow: Int, chosenColumn: Int, gameField: GameField, onGameCell
 
 
 @Composable
-fun GameCellBox(gameCell: GameCell, chosenRow: Int, chosenColumn: Int, onClick: () -> Unit) {
-
+fun GameCellBox(
+    gameCell: GameCell,
+    chosenRow: Int,
+    chosenColumn: Int,
+    isLightGray: Boolean,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
     val modifierBackground = if (gameCell.row == chosenRow && gameCell.column == chosenColumn) {
         Modifier
-            .background(Color.Cyan)
+            .background(MaterialTheme.colorScheme.primary)
     } else if (gameCell.row == chosenRow || gameCell.column == chosenColumn) {
         Modifier
-            .background(Color.Gray)
+            .background(MaterialTheme.colorScheme.tertiary)
+    } else if (isLightGray) {
+        Modifier
+            .background(Color.LightGray)
     } else {
         Modifier
     }
@@ -174,12 +201,13 @@ fun GameCellBox(gameCell: GameCell, chosenRow: Int, chosenColumn: Int, onClick: 
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
-            .size(34.dp)
+            .aspectRatio(1f)
             .border(1.dp, Color.Black)
             .clickable {
                 onClick()
             }
             .then(modifierBackground)
+            .then(modifier)
     ) {
         MediumBodyText(
             text = if (gameCell.isEmpty()) {
@@ -192,8 +220,9 @@ fun GameCellBox(gameCell: GameCell, chosenRow: Int, chosenColumn: Int, onClick: 
 }
 
 @Composable
-fun GameFooter(onNumberClicked: (Int)->Unit) {
-    val listButtonNumbers = remember { listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+fun GameFooter(onNumberClicked: (Int) -> Unit) {
+    val listButtonNumbers = remember {
+        listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     }
 
     val lazyRowState = rememberLazyListState()
