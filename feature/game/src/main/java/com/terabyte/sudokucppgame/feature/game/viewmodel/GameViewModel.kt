@@ -65,8 +65,14 @@ class GameViewModel @Inject constructor(
             }
 
             is GameIntent.OnMakeTurnIntent -> {
-                val isRightTurn =
-                    makeTurnUseCase(state.value.gameId, intent.row, intent.column, intent.value)
+                var isRightTurn = false
+                try {
+                    isRightTurn = makeTurnUseCase(state.value.gameId, state.value.chosenRow, state.value.chosenColumn, intent.value)
+                }
+                catch (e: RuntimeException) {
+                    // do nothing if user try to make turn on busy cell
+                    return
+                }
                 updateGameState()
                 if (isRightTurn) {
                     if (isVictoryUseCase(state.value.gameId)) {
