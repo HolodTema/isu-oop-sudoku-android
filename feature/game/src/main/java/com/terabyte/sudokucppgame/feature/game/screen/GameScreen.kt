@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -34,6 +35,7 @@ import com.terabyte.panopticum.core.ui.component.button.PrimaryButton
 import com.terabyte.panopticum.core.ui.component.text.MediumBodyText
 import com.terabyte.panopticum.core.ui.component.text.MediumTitleText
 import com.terabyte.panopticum.core.ui.icon.AppIcons
+import com.terabyte.panopticum.core.ui.modifier.scroll.horizontalScrollBar
 import com.terabyte.panopticum.core.ui.theme.Dimen
 import com.terabyte.sudokucppgame.core.domain.model.GameCell
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
@@ -193,9 +195,15 @@ fun GameCellBox(gameCell: GameCell, chosenRow: Int, chosenColumn: Int, onClick: 
 fun GameFooter(onNumberClicked: (Int)->Unit) {
     val listButtonNumbers = remember { listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     }
+
+    val lazyRowState = rememberLazyListState()
+
     LazyRow(
+        state = lazyRowState,
         modifier = Modifier
             .fillMaxWidth()
+            .padding(bottom = Dimen.paddingSmall)
+            .horizontalScrollBar(lazyRowState)
     ) {
         items(listButtonNumbers) {
             PrimaryButton(
