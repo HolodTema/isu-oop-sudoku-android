@@ -25,7 +25,13 @@ class MainActivity : ComponentActivity() {
                     composable("mainMenu") {
                         MainMenuScreen(navController)
                     }
-                    composable("game") {
+                    composable("game/EASY") {
+//                        GameScreen()
+                    }
+                    composable("game/MEDIUM") {
+//                        GameScreen()
+                    }
+                    composable("game/HARD") {
 //                        GameScreen()
                     }
                     composable("victory") {
