@@ -1,25 +1,13 @@
 package com.terabyte.sudokucppgame.core.domain.model
 
+import java.util.Collections.emptyList
+
 data class GameField(
     val listGameCells: List<List<GameCell>>
 ) {
 
-    init {
-
-    }
-
     operator fun get(row: Int, column: Int): GameCell {
         return listGameCells[row][column]
-    }
-
-    fun toFlatList(): List<GameCell> {
-        return listGameCells.flatten()
-    }
-
-    fun toIntArray(): IntArray {
-        return toFlatList().map {
-            it.value ?: 0
-        }.toIntArray()
     }
 
     companion object {
@@ -30,16 +18,15 @@ data class GameField(
                 "Array size must be 81"
             }
 
-            val listGameCells = array.map {
-                val value = if (it == 0) {
-                    null
+            val listGameCells: MutableList<List<GameCell>> = emptyList()
+            for (row in 0..8) {
+                val listRow: MutableList<GameCell> = emptyList()
+                for (column in 0..8) {
+                    listRow.add(GameCell(row, column, array[row * 9 + column]))
                 }
-                else {
-                    it
-                }
-                GameCell(value)
+                listGameCells.add(listRow.toList())
             }
-            return GameField(listGameCells.chunked(9))
+            return GameField(listGameCells.toList())
         }
     }
 }
