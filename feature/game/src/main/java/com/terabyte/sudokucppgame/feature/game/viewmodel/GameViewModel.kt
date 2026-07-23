@@ -10,6 +10,7 @@ import com.terabyte.sudokucppgame.core.domain.usecase.GetGameFieldUseCase
 import com.terabyte.sudokucppgame.core.domain.usecase.IsVictoryUseCase
 import com.terabyte.sudokucppgame.core.domain.usecase.MakeTurnUseCase
 import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
+import com.terabyte.sudokucppgame.feature.game.effect.GameEffect.*
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
 import com.terabyte.sudokucppgame.feature.game.state.GameState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,7 +44,9 @@ class GameViewModel @Inject constructor(
             gameId = gameId,
             field = getGameFieldUseCase(gameId),
             difficulty = difficulty,
-            amountMistakes = getAmountMistakesUseCase(gameId)
+            amountMistakes = getAmountMistakesUseCase(gameId),
+            chosenRow = 0,
+            chosenColumn = 0
 
         )
         MutableStateFlow(gameState)
@@ -71,7 +74,7 @@ class GameViewModel @Inject constructor(
                         val amountMistakes = state.value.amountMistakes
                         viewModelScope.launch {
                             _effect.emit(
-                                GameEffect.OnNavigateToVictoryEffect(
+                                OnNavigateToVictoryEffect(
                                     difficulty,
                                     amountMistakes
                                 )
@@ -86,6 +89,15 @@ class GameViewModel @Inject constructor(
                     viewModelScope.launch {
                         _effect.emit(GameEffect.OnShowToastMistakeEffect)
                     }
+                }
+            }
+
+            is GameIntent.OnChooseRowAndColumnIntent -> {
+                _state.update {
+                    it.copy(
+                        chosenRow = intent.row,
+                        chosenColumn = intent.column
+                    )
                 }
             }
         }

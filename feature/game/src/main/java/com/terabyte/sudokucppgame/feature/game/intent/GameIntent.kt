@@ -8,4 +8,9 @@ sealed class GameIntent {
         val column: Int,
         val value: Int
     ) : GameIntent()
+
+    data class OnChooseRowAndColumnIntent(
+        val row: Int,
+        val column: Int
+    ) : GameIntent()
 }

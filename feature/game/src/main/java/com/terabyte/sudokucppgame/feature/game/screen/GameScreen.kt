@@ -20,19 +20,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.terabyte.panopticum.core.ui.component.button.AppIconButton
 import com.terabyte.panopticum.core.ui.component.text.MediumBodyText
 import com.terabyte.panopticum.core.ui.component.text.MediumTitleText
 import com.terabyte.panopticum.core.ui.icon.AppIcons
 import com.terabyte.panopticum.core.ui.theme.Dimen
+import com.terabyte.sudokucppgame.core.domain.model.GameCell
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.core.domain.model.GameField
 import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
+import com.terabyte.sudokucppgame.feature.game.screen.GameCellBox
 import com.terabyte.sudokucppgame.feature.game.viewmodel.GameViewModel
 
 @Composable
@@ -50,12 +52,15 @@ fun GameScreen(
                 GameEffect.OnNavigateToMainMenuEffect -> {
                     navController.navigate("mainMenu")
                 }
+
                 is GameEffect.OnNavigateToVictoryEffect -> {
                     navController.navigate("victory/${state.difficulty}/${state.amountMistakes}")
                 }
+
                 is GameEffect.OnShowToastMistakeEffect -> {
                     Toast.makeText(context, "Mistake!", Toast.LENGTH_SHORT).show()
                 }
+
                 is GameEffect.OnShowToastRightTurnEffect -> {
                     Toast.makeText(context, "Right!", Toast.LENGTH_SHORT).show()
                 }
@@ -77,14 +82,20 @@ fun GameScreen(
             viewModel.handleIntent(GameIntent.OnBackToMainMenuIntent)
         }
 
-        GameGrid()
+        GameGrid(
+            chosenRow = state.chosenRow,
+            chosenColumn = state.chosenColumn,
+            gameField = state.field
+        ) { gameCell ->
+            viewModel.handleIntent(GameIntent.OnChooseRowAndColumnIntent(gameCell.row, gameCell.column))
+        }
 
         GameFooter()
     }
 }
 
 @Composable
-fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClicked: ()->Unit) {
+fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClicked: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -107,42 +118,42 @@ fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClic
     }
 }
 
+
 @Composable
-fun GameGrid(chosenRow: Int, chosenColumn: Int, gameField: GameField) {
+fun GameGrid(chosenRow: Int, chosenColumn: Int, gameField: GameField, onGameCellClick: (GameCell)->Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            for (i in 0..8) {
-                GameCell(
-                    row = 0,
-                    column = i,
-                    chosenRow = chosenRow,
-                    chosenColumn = chosenColumn,
-                    value = gameField.get(0, i).value,
-                ) {
-
+        for (row in 0..8) {
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                for (column in 0..8) {
+                    GameCellBox(
+                        gameCell = gameField[row, column],
+                        chosenRow = chosenRow,
+                        chosenColumn = chosenColumn,
+                    ) {
+                        onGameCellClick(gameField[row, column])
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun GameCell(row: Int, column: Int, chosenRow: Int, chosenColumn: Int, value: Int?, onClick: ()->Unit) {
 
-    val modifierBackground = if (row == chosenRow && column == chosenColumn) {
+@Composable
+fun GameCellBox(gameCell: GameCell, chosenRow: Int, chosenColumn: Int, onClick: () -> Unit) {
+
+    val modifierBackground = if (gameCell.row == chosenRow && gameCell.column == chosenColumn) {
         Modifier
             .background(Color.Cyan)
-    }
-    else if (row == chosenRow || column == chosenColumn) {
+    } else if (gameCell.row == chosenRow || gameCell.column == chosenColumn) {
         Modifier
             .background(Color.Gray)
-    }
-    else {
+    } else {
         Modifier
     }
 
@@ -157,11 +168,10 @@ fun GameCell(row: Int, column: Int, chosenRow: Int, chosenColumn: Int, value: In
             .then(modifierBackground)
     ) {
         MediumBodyText(
-            text = if (value == null) {
+            text = if (gameCell.isEmpty()) {
                 ""
-            }
-            else {
-                value.toString()
+            } else {
+                gameCell.value.toString()
             }
         )
     }

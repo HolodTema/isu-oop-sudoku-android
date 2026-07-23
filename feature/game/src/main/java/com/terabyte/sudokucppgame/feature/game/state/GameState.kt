@@ -8,4 +8,6 @@ data class GameState(
     val field: GameField,
     val difficulty: GameDifficulty,
     val amountMistakes: Int,
+    val chosenRow: Int,
+    val chosenColumn: Int
 )
