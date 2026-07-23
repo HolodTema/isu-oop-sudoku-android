@@ -1,4 +1,4 @@
-package com.terabyte.sudokucppgame.core.data
+package com.terabyte.sudokucppgame.core.data.jni
 
 class SudokuNative {
     init {
@@ -9,7 +9,7 @@ class SudokuNative {
 
     external fun makeTurn(ptr: Long, row: Int, column: Int, value: Int): Boolean
 
-    external fun getMistakes(ptr: Long): Boolean
+    external fun getMistakes(ptr: Long): Int
 
     external fun isVictory(ptr: Long): Boolean
 

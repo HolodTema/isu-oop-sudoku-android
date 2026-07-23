@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.terabyte.sudokucppgame.core.data.SudokuNative
+import com.terabyte.sudokucppgame.core.data.jni.SudokuNative
 import com.terabyte.sudokucppgame.ui.theme.SudokuCppGameTheme
 
 class MainActivity : ComponentActivity() {
