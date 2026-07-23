@@ -4,43 +4,41 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import com.terabyte.sudokucppgame.core.data.jni.SudokuNative
-import com.terabyte.sudokucppgame.ui.theme.SudokuCppGameTheme
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.terabyte.panopticum.core.ui.theme.AppTheme
+import com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            SudokuCppGameTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SudokuScreen()
+            AppTheme {
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = "mainMenu"
+                ) {
+                    composable("mainMenu") {
+                        MainMenuScreen(navController)
+                    }
+                    composable("game/EASY") {
+//                        GameScreen()
+                    }
+                    composable("game/MEDIUM") {
+//                        GameScreen()
+                    }
+                    composable("game/HARD") {
+//                        GameScreen()
+                    }
+                    composable("victory") {
+//                        VictoryScreen()
+                    }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun SudokuScreen() {
-    val sudokuNative = remember { SudokuNative() }
-    val gamePtr = remember { sudokuNative.createGame(25) }
-    val gameField = remember {sudokuNative.getPuzzleField(gamePtr) }
-
-    Column {
-        Text(
-            text = "Sudoku puzzle"
-        )
-
-        gameField?.let {
-            Text(text = it.joinToString(", "))
         }
     }
 }
