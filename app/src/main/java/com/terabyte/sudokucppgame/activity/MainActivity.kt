@@ -8,11 +8,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.terabyte.panopticum.core.ui.theme.AppTheme
+import com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             AppTheme {
                 val navController = rememberNavController()
@@ -21,13 +23,13 @@ class MainActivity : ComponentActivity() {
                     startDestination = "mainMenu"
                 ) {
                     composable("mainMenu") {
-                        MainMenuScreen()
+                        MainMenuScreen(navController)
                     }
                     composable("game") {
-                        GameScreen()
+//                        GameScreen()
                     }
                     composable("victory") {
-                        VictoryScreen()
+//                        VictoryScreen()
                     }
                 }
             }
