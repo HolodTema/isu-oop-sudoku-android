@@ -9,6 +9,7 @@ private val LightColors = lightColorScheme(
     primary = ColorPrimary,
     onPrimary = ColorOnPrimary,
     secondary = ColorSecondary,
+    tertiary = ColorTertiary,
     error = ColorError,
     background = ColorBackground,
     surface = ColorSurface,

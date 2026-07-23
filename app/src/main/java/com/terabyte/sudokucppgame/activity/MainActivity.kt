@@ -4,10 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.terabyte.panopticum.core.ui.theme.AppTheme
+import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
+import com.terabyte.sudokucppgame.feature.game.screen.GameScreen
 import com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,14 +29,21 @@ class MainActivity : ComponentActivity() {
                     composable("mainMenu") {
                         MainMenuScreen(navController)
                     }
-                    composable("game/EASY") {
-//                        GameScreen()
-                    }
-                    composable("game/MEDIUM") {
-//                        GameScreen()
-                    }
-                    composable("game/HARD") {
-//                        GameScreen()
+                    composable(
+                        route = "game/{difficulty}",
+                        arguments = listOf(
+                            navArgument("difficulty") {
+                                type = NavType.StringType
+                            }
+                        )
+                    ) { backStackEntry ->
+                        val strDifficulty = backStackEntry.arguments?.getString("difficulty")
+                        val difficulty = if (strDifficulty == null) {
+                            GameDifficulty.EASY
+                        } else {
+                            GameDifficulty.valueOf(strDifficulty)
+                        }
+                        GameScreen(difficulty, navController)
                     }
                     composable("victory") {
 //                        VictoryScreen()

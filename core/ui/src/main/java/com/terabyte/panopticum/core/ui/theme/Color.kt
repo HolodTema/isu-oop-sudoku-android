@@ -9,6 +9,8 @@ val ColorPrimaryLight = Color(0xFF81C784)
 val ColorSecondary = Color(0xFF2196F3)     // синий
 val ColorSecondaryDark = Color(0xFF1976D2)
 
+val ColorTertiary = Color(0xFF9DF1A0)
+
 val ColorBackground = Color(0xFFF5F5F5)
 val ColorSurface = Color(0xFFFFFFFF)
 val ColorError = Color(0xFFB00020)
