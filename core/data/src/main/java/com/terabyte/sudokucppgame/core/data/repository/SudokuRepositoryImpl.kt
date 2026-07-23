@@ -23,7 +23,7 @@ class SudokuRepositoryImpl @Inject constructor(
         value: Int
     ): Boolean {
         return sudokuNative.makeTurn(gameId, row, column, value)
-    }
+    }   
 
     override fun getAmountMistakes(gameId: Long): Int {
         return sudokuNative.getMistakes(gameId)

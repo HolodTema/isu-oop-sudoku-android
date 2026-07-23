@@ -10,7 +10,7 @@ import com.terabyte.sudokucppgame.core.domain.usecase.GetGameFieldUseCase
 import com.terabyte.sudokucppgame.core.domain.usecase.IsVictoryUseCase
 import com.terabyte.sudokucppgame.core.domain.usecase.MakeTurnUseCase
 import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
-import com.terabyte.sudokucppgame.feature.game.effect.GameEffect.*
+import com.terabyte.sudokucppgame.feature.game.effect.GameEffect.OnNavigateToVictoryEffect
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
 import com.terabyte.sudokucppgame.feature.game.state.GameState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -32,7 +32,7 @@ class GameViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<GameState> by lazy {
+    private val _state: MutableStateFlow<GameState> = run {
         val strDifficulty = savedStateHandle.get<String>("difficulty")
         val difficulty = if (strDifficulty == null) {
             GameDifficulty.EASY

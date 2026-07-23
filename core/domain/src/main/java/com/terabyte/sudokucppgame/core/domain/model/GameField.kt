@@ -18,11 +18,18 @@ data class GameField(
                 "Array size must be 81"
             }
 
-            val listGameCells: MutableList<List<GameCell>> = emptyList()
+            val listGameCells: MutableList<List<GameCell>> = mutableListOf()
             for (row in 0..8) {
-                val listRow: MutableList<GameCell> = emptyList()
+                val listRow: MutableList<GameCell> = mutableListOf()
                 for (column in 0..8) {
-                    listRow.add(GameCell(row, column, array[row * 9 + column]))
+                    val value = array[row * 9 + column]
+                    val gameCell = if (value == 0) {
+                        GameCell(row, column, null)
+                    }
+                    else {
+                        GameCell(row, column, value)
+                    }
+                    listRow.add(gameCell)
                 }
                 listGameCells.add(listRow.toList())
             }

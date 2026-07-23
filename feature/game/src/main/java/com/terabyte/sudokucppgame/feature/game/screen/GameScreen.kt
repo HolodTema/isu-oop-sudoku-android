@@ -102,6 +102,7 @@ fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClic
             .padding(bottom = Dimen.paddingMedium)
     ) {
         Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
         ) {
@@ -122,6 +123,8 @@ fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClic
 @Composable
 fun GameGrid(chosenRow: Int, chosenColumn: Int, gameField: GameField, onGameCellClick: (GameCell)->Unit) {
     Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
     ) {
@@ -160,8 +163,8 @@ fun GameCellBox(gameCell: GameCell, chosenRow: Int, chosenColumn: Int, onClick: 
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
-            .size(28.dp)
-            .border(2.dp, Color.Black)
+            .size(34.dp)
+            .border(1.dp, Color.Black)
             .clickable {
                 onClick()
             }

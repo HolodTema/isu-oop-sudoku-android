@@ -1,8 +1,9 @@
 package com.terabyte.sudokucppgame.core.domain.usecase
 
 import com.terabyte.sudokucppgame.core.domain.repository.SudokuRepository
+import javax.inject.Inject
 
-class DeleteGameUseCase(
+class DeleteGameUseCase @Inject constructor(
     private val repository: SudokuRepository
 ) {
 
