@@ -51,4 +51,10 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Navigation Compose to use navController inside Screen function
+    implementation(libs.androidx.navigation.compose)
 }
