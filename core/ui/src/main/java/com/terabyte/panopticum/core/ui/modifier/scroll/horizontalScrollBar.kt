@@ -8,6 +8,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.terabyte.panopticum.core.ui.theme.Dimen
 
 fun Modifier.horizontalScrollBar(
     state: LazyListState,
@@ -33,7 +34,7 @@ fun Modifier.horizontalScrollBar(
                 color = color,
                 topLeft = Offset(
                     x = scrollbarMarginLeft,
-                    y = size.height - height.toPx() - paddingBottom.toPx()
+                    y = size.height - height.toPx() + Dimen.paddingMedium.toPx()
                 ),
                 size = Size(
                     width = scrollbarWidth,

@@ -32,6 +32,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.terabyte.panopticum.core.ui.component.button.AppIconButton
 import com.terabyte.panopticum.core.ui.component.button.PrimaryButton
+import com.terabyte.panopticum.core.ui.component.text.LargeBodyText
+import com.terabyte.panopticum.core.ui.component.text.LargeTitleText
 import com.terabyte.panopticum.core.ui.component.text.MediumBodyText
 import com.terabyte.panopticum.core.ui.component.text.MediumTitleText
 import com.terabyte.panopticum.core.ui.icon.AppIcons
@@ -111,23 +113,25 @@ fun GameScreen(
 @Composable
 fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClicked: () -> Unit) {
     Column(
+        horizontalAlignment = Alignment.Start,
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = Dimen.paddingMedium)
     ) {
         Row(
+            horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
         ) {
             AppIconButton(AppIcons.Back, onButtonBackClicked)
-            MediumTitleText(
+            LargeTitleText(
                 text = "Sudoku: ${difficulty.name} difficulty",
                 modifier = Modifier
                     .weight(1f)
             )
         }
-        MediumBodyText(
+        LargeBodyText(
             text = "Mistakes: ${amountMistakes}"
         )
     }
@@ -231,7 +235,6 @@ fun GameFooter(onNumberClicked: (Int) -> Unit) {
         state = lazyRowState,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = Dimen.paddingSmall)
             .horizontalScrollBar(lazyRowState)
     ) {
         items(listButtonNumbers) {
