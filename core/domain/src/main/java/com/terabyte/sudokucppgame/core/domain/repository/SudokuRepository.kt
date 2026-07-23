@@ -1,6 +1,7 @@
 package com.terabyte.sudokucppgame.core.domain.repository
 
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
+import com.terabyte.sudokucppgame.core.domain.model.GameField
 
 interface SudokuRepository {
     fun createGame(difficulty: GameDifficulty): Long
@@ -11,7 +12,7 @@ interface SudokuRepository {
 
     fun isVictory(gameId: Long): Boolean
 
-    fun getPuzzleField(gameId: Long): SudokuField
+    fun getPuzzleField(gameId: Long): GameField
 
     fun deleteGame(gameId: Long)
 }
