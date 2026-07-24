@@ -1,5 +1,6 @@
 package com.terabyte.sudokucppgame.feature.game.screen
 
+import android.content.res.Configuration
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -35,7 +38,6 @@ import com.terabyte.panopticum.core.ui.component.button.PrimaryButton
 import com.terabyte.panopticum.core.ui.component.text.LargeBodyText
 import com.terabyte.panopticum.core.ui.component.text.LargeTitleText
 import com.terabyte.panopticum.core.ui.component.text.MediumBodyText
-import com.terabyte.panopticum.core.ui.component.text.MediumTitleText
 import com.terabyte.panopticum.core.ui.icon.AppIcons
 import com.terabyte.panopticum.core.ui.modifier.scroll.horizontalScrollBar
 import com.terabyte.panopticum.core.ui.theme.Dimen
@@ -44,6 +46,7 @@ import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.core.domain.model.GameField
 import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
+import com.terabyte.sudokucppgame.feature.game.state.GameState
 import com.terabyte.sudokucppgame.feature.game.viewmodel.GameViewModel
 
 @Composable
@@ -77,6 +80,53 @@ fun GameScreen(
         }
     }
 
+    val orientation = LocalConfiguration.current.orientation
+    if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+        GameScreenPortrait(
+            state = state,
+            onButtonBackClicked = {
+                viewModel.handleIntent(GameIntent.OnBackToMainMenuIntent)
+            },
+            onGameCellClick = { gameCell ->
+                viewModel.handleIntent(
+                    GameIntent.OnChooseRowAndColumnIntent(
+                        gameCell.row,
+                        gameCell.column
+                    )
+                )
+            },
+            onNumberClicked = { value ->
+                viewModel.handleIntent(GameIntent.OnMakeTurnIntent(value))
+            }
+        )
+    } else {
+        GameScreenLandscape(
+            state = state,
+            onButtonBackClicked = {
+                viewModel.handleIntent(GameIntent.OnBackToMainMenuIntent)
+            },
+            onGameCellClick = { gameCell ->
+                viewModel.handleIntent(
+                    GameIntent.OnChooseRowAndColumnIntent(
+                        gameCell.row,
+                        gameCell.column
+                    )
+                )
+            },
+            onNumberClicked = { value ->
+                viewModel.handleIntent(GameIntent.OnMakeTurnIntent(value))
+            }
+        )
+    }
+}
+
+@Composable
+fun GameScreenPortrait(
+    state: GameState,
+    onButtonBackClicked: () -> Unit,
+    onGameCellClick: (GameCell) -> Unit,
+    onNumberClicked: (Int) -> Unit
+) {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -86,27 +136,53 @@ fun GameScreen(
     ) {
         GameHeader(
             difficulty = state.difficulty,
-            amountMistakes = state.amountMistakes
-        ) {
-            viewModel.handleIntent(GameIntent.OnBackToMainMenuIntent)
-        }
-
+            amountMistakes = state.amountMistakes,
+            onButtonBackClicked = onButtonBackClicked
+        )
         GameGrid(
             chosenRow = state.chosenRow,
             chosenColumn = state.chosenColumn,
-            gameField = state.field
-        ) { gameCell ->
-            viewModel.handleIntent(
-                GameIntent.OnChooseRowAndColumnIntent(
-                    gameCell.row,
-                    gameCell.column
-                )
-            )
-        }
+            gameField = state.field,
+            isPortrait = true,
+            onGameCellClick = onGameCellClick
+        )
+        GameFooter(onNumberClicked)
+    }
+}
 
-        GameFooter { value ->
-            viewModel.handleIntent(GameIntent.OnMakeTurnIntent(value))
+@Composable
+fun GameScreenLandscape(
+    state: GameState,
+    onButtonBackClicked: () -> Unit,
+    onGameCellClick: (GameCell) -> Unit,
+    onNumberClicked: (Int) -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(Dimen.paddingLarge)
+    ) {
+        Column(
+            verticalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .fillMaxHeight()
+                .weight(1f)
+                .padding(end = Dimen.paddingLarge)
+        ) {
+            GameHeader(
+                difficulty = state.difficulty,
+                amountMistakes = state.amountMistakes,
+                onButtonBackClicked = onButtonBackClicked
+            )
+            GameFooter(onNumberClicked)
         }
+        GameGrid(
+            chosenRow = state.chosenRow,
+            chosenColumn = state.chosenColumn,
+            gameField = state.field,
+            isPortrait = false,
+            onGameCellClick = onGameCellClick
+        )
     }
 }
 
@@ -143,13 +219,20 @@ fun GameGrid(
     chosenRow: Int,
     chosenColumn: Int,
     gameField: GameField,
+    isPortrait: Boolean,
     onGameCellClick: (GameCell) -> Unit
 ) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = if (isPortrait) {
+            Modifier
+                .fillMaxWidth()
+        } else {
+            Modifier
+                .fillMaxHeight()
+                .aspectRatio(1f)
+        }
     ) {
         for (row in 0..8) {
             Row(
