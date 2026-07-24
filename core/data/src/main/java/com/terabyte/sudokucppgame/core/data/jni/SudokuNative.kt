@@ -1,19 +1,15 @@
 package com.terabyte.sudokucppgame.core.data.jni
 
-class SudokuNative {
-    init {
-        System.loadLibrary("sudoku_jni")
-    }
+interface SudokuNative {
+    fun createGame(difficulty: Int): Long
 
-    external fun createGame(difficulty: Int): Long
+    fun makeTurn(ptr: Long, row: Int, column: Int, value: Int): Boolean
 
-    external fun makeTurn(ptr: Long, row: Int, column: Int, value: Int): Boolean
+    fun getMistakes(ptr: Long): Int
 
-    external fun getMistakes(ptr: Long): Int
+    fun isVictory(ptr: Long): Boolean
 
-    external fun isVictory(ptr: Long): Boolean
+    fun getPuzzleField(ptr: Long): IntArray
 
-    external fun getPuzzleField(ptr: Long): IntArray
-
-    external fun deleteGame(ptr: Long)
+    fun deleteGame(ptr: Long)
 }
