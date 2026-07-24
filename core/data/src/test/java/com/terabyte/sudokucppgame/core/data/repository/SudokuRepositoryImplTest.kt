@@ -4,7 +4,9 @@ import com.terabyte.sudokucppgame.core.data.jni.SudokuNative
 import com.terabyte.sudokucppgame.core.domain.model.GameCell
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.core.domain.model.GameField
+import io.mockk.Runs
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import junit.framework.TestCase.assertEquals
@@ -91,7 +93,7 @@ class SudokuRepositoryImplTest {
     }
 
     @Test
-    fun `getPuzzleField calls SudokuNative getPuzzleField() and returns GameField object`() {
+    fun `getPuzzleField() calls SudokuNative getPuzzleField() and returns GameField object`() {
         // arrange
         val gameId = 1L
         val expectedGameField = GameField(
@@ -114,5 +116,22 @@ class SudokuRepositoryImplTest {
             sudokuNative.getPuzzleField(gameId)
         }
         assert(expectedGameField == gameField)
+    }
+
+    @Test
+    fun `deleteGame() calls SudokuNative deleteGame()`() {
+        // arrange
+        val gameId = 10L
+        every {
+            sudokuNative.deleteGame(gameId)
+        } just Runs
+
+        // act
+        repository.deleteGame(gameId)
+
+        // assert
+        verify(exactly = 1) {
+            sudokuNative.deleteGame(gameId)
+        }
     }
 }
