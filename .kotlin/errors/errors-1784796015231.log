@@ -1,0 +1,306 @@
+kotlin version: 2.2.10
+error message: java.lang.RuntimeException: Exception while generating code for:
+FUN name:MainMenuScreen visibility:public modality:FINAL returnType:kotlin.Unit
+  VALUE_PARAMETER kind:Regular name:navController index:0 type:androidx.navigation.NavController
+  VALUE_PARAMETER kind:Regular name:viewModel index:1 type:com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel
+    EXPRESSION_BODY
+      ERROR_EXPR 'Default Stub' type=com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel
+  annotations:
+    Composable
+  BLOCK_BODY
+    CALL 'public final fun LaunchedEffect (key1: kotlin.Any?, block: @[ExtensionFunctionType] kotlin.coroutines.SuspendFunction1<kotlinx.coroutines.CoroutineScope, kotlin.Unit>): kotlin.Unit declared in androidx.compose.runtime.EffectsKt' type=kotlin.Unit origin=null
+      ARG key1: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:INSTANCE type:kotlin.Unit visibility:public [final,static] declared in kotlin.Unit' type=kotlin.Unit origin=null
+      ARG block: BLOCK type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+        CLASS SUSPEND_LAMBDA CLASS name:<no name provided> modality:FINAL visibility:public/*package*/ superTypes:[kotlin.coroutines.jvm.internal.SuspendLambda; kotlin.jvm.functions.Function2<kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<kotlin.Unit>?, kotlin.Any?>]
+          thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>
+          FIELD name:label type:kotlin.Int visibility:public/*package*/
+          CONSTRUCTOR SUSPEND_LAMBDA visibility:public/*package*/ returnType:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> [primary]
+            VALUE_PARAMETER BOUND_VALUE_PARAMETER kind:Regular name:$viewModel index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel
+            VALUE_PARAMETER BOUND_VALUE_PARAMETER kind:Regular name:$navController index:1 type:androidx.navigation.NavController
+            VALUE_PARAMETER kind:Regular name:$completion index:2 type:kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>>?
+            BLOCK_BODY
+              SET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$viewModel type:com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=kotlin.Unit origin=INITIALIZER_OF_FIELD_FOR_CAPTURED_VALUE
+                receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                value: GET_VAR '$viewModel: com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.<init>' type=com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel origin=null
+              SET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=kotlin.Unit origin=INITIALIZER_OF_FIELD_FOR_CAPTURED_VALUE
+                receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                value: GET_VAR '$navController: androidx.navigation.NavController declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.<init>' type=androidx.navigation.NavController origin=null
+              DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (arity: kotlin.Int, $completion: kotlin.coroutines.Continuation<kotlin.Any?>?) declared in kotlin.coroutines.jvm.internal.SuspendLambda'
+                ARG arity: CONST Int type=kotlin.Int value=2
+                ARG $completion: GET_VAR '$completion: kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>>? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.<init>' type=kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>>? origin=null
+              BLOCK type=kotlin.Unit origin=null
+          FUN name:invokeSuspend visibility:public modality:FINAL returnType:kotlin.Any?
+            VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>
+            VALUE_PARAMETER kind:Regular name:$result index:1 type:kotlin.Result<kotlin.Any?>
+            overridden:
+              protected abstract fun invokeSuspend ($result: kotlin.Result<kotlin.Any?>): kotlin.Any? declared in kotlin.coroutines.jvm.internal.SuspendLambda
+            BLOCK_BODY
+              BLOCK type=kotlin.Nothing origin=null
+                CALL 'public abstract fun collect (collector: kotlinx.coroutines.flow.FlowCollector<T of kotlinx.coroutines.flow.SharedFlow>, $completion: kotlin.coroutines.Continuation<kotlin.Nothing>): kotlin.Any? [suspend] declared in kotlinx.coroutines.flow.SharedFlow' type=kotlin.Nothing origin=null
+                  ARG <this>: CALL 'public final fun <get-effect> (): kotlinx.coroutines.flow.SharedFlow<com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect> declared in com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel' type=kotlinx.coroutines.flow.SharedFlow<com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect> origin=GET_PROPERTY
+                    ARG <this>: GET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$viewModel type:com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel origin=null
+                      receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                  ARG collector: BLOCK type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                    CLASS LAMBDA_IMPL CLASS name:<no name provided> modality:FINAL visibility:public/*package*/ superTypes:[@[RawType] kotlinx.coroutines.flow.FlowCollector<T of kotlinx.coroutines.flow.FlowCollector>]
+                      thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>>
+                      TYPE_PARAMETER name:T index:0 variance:in superTypes:[kotlin.Any?] reified:false
+                      CONSTRUCTOR GENERATED_MEMBER_IN_CALLABLE_REFERENCE visibility:public/*package*/ returnType:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> [primary]
+                        VALUE_PARAMETER BOUND_VALUE_PARAMETER kind:Regular name:$navController index:0 type:androidx.navigation.NavController
+                        BLOCK_BODY
+                          SET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>' type=kotlin.Unit origin=INITIALIZER_OF_FIELD_FOR_CAPTURED_VALUE
+                            receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                            value: GET_VAR '$navController: androidx.navigation.NavController declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.<init>' type=androidx.navigation.NavController origin=null
+                          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+                          BLOCK type=kotlin.Unit origin=null
+                      FUN name:emit visibility:public modality:FINAL returnType:kotlin.Any? [suspend]
+                        VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>>
+                        VALUE_PARAMETER kind:Regular name:effect index:1 type:com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect
+                        VALUE_PARAMETER CONTINUATION_CLASS kind:Regular name:$completion index:2 type:kotlin.coroutines.Continuation<kotlin.Unit>
+                        overridden:
+                          public abstract fun emit (value: T of kotlinx.coroutines.flow.FlowCollector, $completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [suspend] declared in kotlinx.coroutines.flow.FlowCollector
+                        BLOCK_BODY
+                          CLASS CONTINUATION_CLASS CLASS name:<Continuation> modality:FINAL visibility:public/*package*/ superTypes:[kotlin.coroutines.jvm.internal.ContinuationImpl]
+                            thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>
+                            FIELD CONTINUATION_CLASS_RESULT_FIELD name:result type:kotlin.Result<kotlin.Any?> visibility:public/*package*/
+                            FIELD FIELD_FOR_OUTER_THIS name:this$0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> visibility:public/*package*/ [final]
+                            FIELD name:label type:kotlin.Int visibility:public/*package*/
+                            CONSTRUCTOR visibility:public/*package*/ returnType:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> [primary]
+                              VALUE_PARAMETER kind:Regular name:this$0 index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>>
+                              VALUE_PARAMETER kind:Regular name:$completion index:1 type:kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>>?
+                              BLOCK_BODY
+                                SET_FIELD 'FIELD FIELD_FOR_OUTER_THIS name:this$0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>' type=kotlin.Unit origin=null
+                                  receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> origin=null
+                                  value: GET_VAR 'this$0: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.<init>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                                DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> ($completion: kotlin.coroutines.Continuation<kotlin.Any?>?) declared in kotlin.coroutines.jvm.internal.ContinuationImpl'
+                                  ARG $completion: GET_VAR '$completion: kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>>? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.<init>' type=kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>>? origin=null
+                            FUN name:invokeSuspend visibility:public modality:FINAL returnType:kotlin.Any?
+                              VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>
+                              VALUE_PARAMETER kind:Regular name:$result index:1 type:kotlin.Result<kotlin.Any?>
+                              overridden:
+                                public abstract fun invokeSuspend ($result: kotlin.Result<kotlin.Any?>): kotlin.Any? declared in kotlin.coroutines.jvm.internal.ContinuationImpl
+                              BLOCK_BODY
+                                SET_FIELD 'FIELD CONTINUATION_CLASS_RESULT_FIELD name:result type:kotlin.Result<kotlin.Any?> visibility:public/*package*/ declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>' type=kotlin.Unit origin=null
+                                  receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> origin=null
+                                  value: GET_VAR '$result: kotlin.Result<kotlin.Any?> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.invokeSuspend' type=kotlin.Result<kotlin.Any?> origin=null
+                                SET_FIELD 'FIELD name:label type:kotlin.Int visibility:public/*package*/ declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>' type=kotlin.Unit origin=null
+                                  receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> origin=null
+                                  value: CALL 'public final fun or (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+                                    ARG <this>: GET_FIELD 'FIELD name:label type:kotlin.Int visibility:public/*package*/ declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>' type=kotlin.Int origin=null
+                                      receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> origin=null
+                                    ARG other: CONST Int type=kotlin.Int value=-2147483648
+                                RETURN type=kotlin.Nothing from='public final fun invokeSuspend ($result: kotlin.Result<kotlin.Any?>): kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>'
+                                  CALL 'public final fun emit (effect: com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect, $completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [suspend] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>' type=kotlin.Any? origin=null
+                                    ARG <this>: GET_FIELD 'FIELD FIELD_FOR_OUTER_THIS name:this$0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                                      receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> origin=null
+                                    ARG effect: CONST Null type=com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect? value=null
+                                    ARG $completion: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit.<Continuation> origin=null
+                          BLOCK type=kotlin.Unit origin=WHEN
+                            VAR IR_TEMPORARY_VARIABLE name:tmp0_subject type:com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect [val]
+                              GET_VAR 'effect: com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit' type=com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect origin=null
+                            WHEN type=kotlin.Unit origin=WHEN
+                              BRANCH
+                                if: TYPE_OP type=kotlin.Boolean origin=INSTANCEOF typeOperand=com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect.NavigateToGameEffect
+                                  GET_VAR 'val tmp0_subject: com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect [val] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit' type=com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect origin=null
+                                then: BLOCK type=kotlin.Unit origin=null
+                                  CALL 'public final fun navigate$default ($this: androidx.navigation.NavController, route: kotlin.String, navOptions: androidx.navigation.NavOptions?, navigatorExtras: androidx.navigation.Navigator.Extras?, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.Unit declared in androidx.navigation.NavController' type=kotlin.Unit origin=DEFAULT_DISPATCH_CALL
+                                    ARG $this: GET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>' type=androidx.navigation.NavController origin=null
+                                      receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                                    ARG route: CONST String type=kotlin.String value="game"
+                                    ARG navOptions: COMPOSITE type=androidx.navigation.NavOptions? origin=DEFAULT_VALUE
+                                      CONST Null type=androidx.navigation.NavOptions? value=null
+                                    ARG navigatorExtras: COMPOSITE type=androidx.navigation.Navigator.Extras? origin=DEFAULT_VALUE
+                                      CONST Null type=androidx.navigation.Navigator.Extras? value=null
+                                    ARG $mask0: CONST Int type=kotlin.Int value=6
+                                    ARG $handler: CONST Null type=kotlin.Any? value=null
+                              BRANCH
+                                if: CONST Boolean type=kotlin.Boolean value=true
+                                then: BLOCK type=kotlin.Nothing origin=null
+                                  CALL 'public final fun noWhenBranchMatchedException (): kotlin.Nothing declared in kotlin.internal.ir' type=kotlin.Nothing origin=null
+                                  CALL 'public final fun throwKotlinNothingValueException (): kotlin.Nothing declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Nothing origin=null
+                      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
+                        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+                        VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+                        overridden:
+                          public open fun equals (other: kotlin.Any?): kotlin.Boolean [fake_override,operator] declared in kotlinx.coroutines.flow.FlowCollector
+                      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
+                        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+                        overridden:
+                          public open fun hashCode (): kotlin.Int [fake_override] declared in kotlinx.coroutines.flow.FlowCollector
+                      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
+                        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+                        overridden:
+                          public open fun toString (): kotlin.String [fake_override] declared in kotlinx.coroutines.flow.FlowCollector
+                      FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final]
+                      FUN BRIDGE name:emit visibility:public modality:OPEN returnType:kotlin.Any? [suspend]
+                        VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>>
+                        VALUE_PARAMETER BRIDGE kind:Regular name:value index:1 type:kotlin.Any?
+                        VALUE_PARAMETER BRIDGE kind:Regular name:$completion index:2 type:kotlin.coroutines.Continuation<kotlin.Unit>
+                        EXPRESSION_BODY
+                          RETURN type=kotlin.Nothing from='public open fun emit (value: kotlin.Any?, $completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [suspend] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>'
+                            CALL 'public final fun emit (effect: com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect, $completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [suspend] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>' type=kotlin.Any? origin=BRIDGE_DELEGATION
+                              ARG <this>: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                              ARG effect: TYPE_OP type=com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect origin=IMPLICIT_CAST typeOperand=com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect
+                                GET_VAR 'value: kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit' type=kotlin.Any? origin=null
+                              ARG $completion: TYPE_OP type=kotlin.coroutines.Continuation<*> origin=IMPLICIT_CAST typeOperand=kotlin.coroutines.Continuation<*>
+                                GET_VAR '$completion: kotlin.coroutines.Continuation<kotlin.Unit> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>.emit' type=kotlin.coroutines.Continuation<kotlin.Unit> origin=null
+                    CONSTRUCTOR_CALL 'public/*package*/ constructor <init> ($navController: androidx.navigation.NavController) [primary] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided><T of com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend.<no name provided>> origin=null
+                      TYPE_ARG (of class) T: <none>
+                      ARG $navController: GET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=androidx.navigation.NavController origin=null
+                        receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                  ARG $completion: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invokeSuspend' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                CALL 'public final fun throwKotlinNothingValueException (): kotlin.Nothing declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Nothing origin=null
+          FUN name:create visibility:public modality:FINAL returnType:kotlin.coroutines.Continuation<kotlin.Unit>
+            VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>
+            VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.Any?
+            VALUE_PARAMETER kind:Regular name:$completion index:2 type:kotlin.coroutines.Continuation<kotlin.Nothing>
+            overridden:
+              public open fun create (value: kotlin.Any?, $completion: kotlin.coroutines.Continuation<kotlin.Nothing>): kotlin.coroutines.Continuation<kotlin.Unit> declared in kotlin.coroutines.jvm.internal.SuspendLambda
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='public final fun create (value: kotlin.Any?, $completion: kotlin.coroutines.Continuation<kotlin.Nothing>): kotlin.coroutines.Continuation<kotlin.Unit> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>'
+                CONSTRUCTOR_CALL 'public/*package*/ constructor <init> ($viewModel: com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel, $navController: androidx.navigation.NavController, $completion: kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>>?) [primary] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                  ARG $viewModel: GET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$viewModel type:com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel origin=null
+                    receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.create' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                  ARG $navController: GET_FIELD 'FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=androidx.navigation.NavController origin=null
+                    receiver: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.create' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                  ARG $completion: GET_VAR '$completion: kotlin.coroutines.Continuation<kotlin.Nothing> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.create' type=kotlin.coroutines.Continuation<kotlin.Nothing> origin=null
+          FUN name:invoke visibility:public modality:FINAL returnType:kotlin.Any?
+            VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>
+            VALUE_PARAMETER kind:Regular name:p1 index:1 type:kotlinx.coroutines.CoroutineScope
+            VALUE_PARAMETER kind:Regular name:p2 index:2 type:kotlin.coroutines.Continuation<kotlin.Unit>?
+            overridden:
+              public abstract fun invoke (p1: P1 of kotlin.jvm.functions.Function2, p2: P2 of kotlin.jvm.functions.Function2): R of kotlin.jvm.functions.Function2 declared in kotlin.jvm.functions.Function2
+            BLOCK_BODY
+              RETURN type=kotlin.Nothing from='public final fun invoke (p1: kotlinx.coroutines.CoroutineScope, p2: kotlin.coroutines.Continuation<kotlin.Unit>?): kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>'
+                CALL 'public final fun invokeSuspend ($result: kotlin.Result<kotlin.Any?>): kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=kotlin.Any? origin=null
+                  ARG <this>: TYPE_OP type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=IMPLICIT_CAST typeOperand=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>
+                    CALL 'public final fun create (value: kotlin.Any?, $completion: kotlin.coroutines.Continuation<kotlin.Nothing>): kotlin.coroutines.Continuation<kotlin.Unit> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=kotlin.coroutines.Continuation<kotlin.Unit> origin=null
+                      ARG <this>: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invoke' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                      ARG value: GET_VAR 'p1: kotlinx.coroutines.CoroutineScope declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invoke' type=kotlinx.coroutines.CoroutineScope origin=null
+                      ARG $completion: GET_VAR 'p2: kotlin.coroutines.Continuation<kotlin.Unit>? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invoke' type=kotlin.coroutines.Continuation<kotlin.Unit>? origin=null
+                  ARG $result: CALL 'public final fun <unsafe-coerce> <T, R> (v: T of kotlin.jvm.internal.<unsafe-coerce>): R of kotlin.jvm.internal.<unsafe-coerce> declared in kotlin.jvm.internal' type=kotlin.Result<kotlin.Any?> origin=null
+                    TYPE_ARG T: kotlin.Any?
+                    TYPE_ARG R: kotlin.Result<kotlin.Any?>
+                    ARG v: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:INSTANCE type:kotlin.Unit visibility:public [final,static] declared in kotlin.Unit' type=kotlin.Unit origin=null
+          FIELD FIELD_FOR_CAPTURED_VALUE name:$viewModel type:com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel visibility:public/*package*/ [final]
+          FIELD FIELD_FOR_CAPTURED_VALUE name:$navController type:androidx.navigation.NavController visibility:public/*package*/ [final]
+          FUN BRIDGE name:invoke visibility:public modality:OPEN returnType:kotlin.Any?
+            VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> index:0 type:com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>
+            VALUE_PARAMETER BRIDGE kind:Regular name:p1 index:1 type:kotlin.Any?
+            VALUE_PARAMETER BRIDGE kind:Regular name:p2 index:2 type:kotlin.Any?
+            EXPRESSION_BODY
+              RETURN type=kotlin.Nothing from='public open fun invoke (p1: kotlin.Any?, p2: kotlin.Any?): kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>'
+                CALL 'public final fun invoke (p1: kotlinx.coroutines.CoroutineScope, p2: kotlin.coroutines.Continuation<kotlin.Unit>?): kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=kotlin.Any? origin=BRIDGE_DELEGATION
+                  ARG <this>: GET_VAR '<this>: com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invoke' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+                  ARG p1: TYPE_OP type=kotlinx.coroutines.CoroutineScope origin=IMPLICIT_CAST typeOperand=kotlinx.coroutines.CoroutineScope
+                    GET_VAR 'p1: kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invoke' type=kotlin.Any? origin=null
+                  ARG p2: TYPE_OP type=kotlin.coroutines.Continuation<*> origin=IMPLICIT_CAST typeOperand=kotlin.coroutines.Continuation<*>
+                    GET_VAR 'p2: kotlin.Any? declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>.invoke' type=kotlin.Any? origin=null
+        CONSTRUCTOR_CALL 'public/*package*/ constructor <init> ($viewModel: com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel, $navController: androidx.navigation.NavController, $completion: kotlin.coroutines.Continuation<com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>>?) [primary] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided>' type=com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen.<no name provided> origin=null
+          ARG $viewModel: GET_VAR 'viewModel: com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen' type=com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel origin=null
+          ARG $navController: GET_VAR 'navController: androidx.navigation.NavController declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen' type=androidx.navigation.NavController origin=null
+          ARG $completion: CONST Null type=kotlin.Nothing? value=null
+    BLOCK type=kotlin.Unit origin=ARGUMENTS_REORDERING_FOR_CALL
+      VAR IR_TEMPORARY_VARIABLE name:tmp0_verticalArrangement type:androidx.compose.foundation.layout.Arrangement.HorizontalOrVertical [val]
+        CALL 'public final fun <get-SpaceBetween> (): androidx.compose.foundation.layout.Arrangement.HorizontalOrVertical declared in androidx.compose.foundation.layout.Arrangement' type=androidx.compose.foundation.layout.Arrangement.HorizontalOrVertical origin=GET_PROPERTY
+          ARG <this>: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:INSTANCE type:androidx.compose.foundation.layout.Arrangement visibility:public [final,static] declared in androidx.compose.foundation.layout.Arrangement' type=androidx.compose.foundation.layout.Arrangement origin=null
+      VAR IR_TEMPORARY_VARIABLE name:tmp1_modifier type:androidx.compose.ui.Modifier [val]
+        CALL 'public final fun padding-3ABfNKs ($this$padding: androidx.compose.ui.Modifier, all: androidx.compose.ui.unit.Dp): androidx.compose.ui.Modifier declared in androidx.compose.foundation.layout.PaddingKt' type=androidx.compose.ui.Modifier origin=null
+          ARG $this$padding: CALL 'public final fun fillMaxSize$default (<this>: androidx.compose.ui.Modifier, fraction: kotlin.Float, $mask0: kotlin.Int, $handler: kotlin.Any?): androidx.compose.ui.Modifier declared in androidx.compose.foundation.layout.SizeKt' type=androidx.compose.ui.Modifier origin=DEFAULT_DISPATCH_CALL
+            ARG <this>: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:Companion type:androidx.compose.ui.Modifier.Companion visibility:public [final,static] declared in androidx.compose.ui.Modifier' type=androidx.compose.ui.Modifier.Companion origin=null
+            ARG fraction: COMPOSITE type=kotlin.Float origin=DEFAULT_VALUE
+              CONST Float type=kotlin.Float value=0.0
+            ARG $mask0: CONST Int type=kotlin.Int value=1
+            ARG $handler: CONST Null type=kotlin.Any? value=null
+          ARG all: CALL 'public final fun getPaddingLarge-D9Ej5fM (): androidx.compose.ui.unit.Dp declared in com.terabyte.panopticum.core.ui.theme.Dimen' type=androidx.compose.ui.unit.Dp origin=GET_PROPERTY
+            ARG <this>: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:INSTANCE type:com.terabyte.panopticum.core.ui.theme.Dimen visibility:public [final,static] declared in com.terabyte.panopticum.core.ui.theme.Dimen' type=com.terabyte.panopticum.core.ui.theme.Dimen origin=null
+      CALL 'public final fun Column$default (modifier: androidx.compose.ui.Modifier?, verticalArrangement: androidx.compose.foundation.layout.Arrangement.Vertical?, horizontalAlignment: androidx.compose.ui.Alignment.Horizontal?, content: @[Composable] @[ExtensionFunctionType] kotlin.Function1<androidx.compose.foundation.layout.ColumnScope, kotlin.Unit>, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.Unit [inline] declared in androidx.compose.foundation.layout.ColumnKt' type=kotlin.Unit origin=DEFAULT_DISPATCH_CALL
+        ARG modifier: GET_VAR 'val tmp1_modifier: androidx.compose.ui.Modifier [val] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen' type=androidx.compose.ui.Modifier origin=null
+        ARG verticalArrangement: GET_VAR 'val tmp0_verticalArrangement: androidx.compose.foundation.layout.Arrangement.HorizontalOrVertical [val] declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt.MainMenuScreen' type=androidx.compose.foundation.layout.Arrangement.HorizontalOrVertical origin=null
+        ARG horizontalAlignment: COMPOSITE type=androidx.compose.ui.Alignment.Horizontal? origin=DEFAULT_VALUE
+          CONST Null type=androidx.compose.ui.Alignment.Horizontal? value=null
+        ARG content: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<androidx.compose.foundation.layout.ColumnScope, kotlin.Unit> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun MainMenuScreen$lambda$0 ($this$Column: androidx.compose.foundation.layout.ColumnScope): kotlin.Unit declared in com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreenKt' type=@[ExtensionFunctionType] kotlin.Function1<androidx.compose.foundation.layout.ColumnScope, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+        ARG $mask0: CONST Int type=kotlin.Int value=4
+        ARG $handler: CONST Null type=kotlin.Any? value=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:50)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:43)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:422)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:439)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:164)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateFile(JvmIrCodegenFactory.kt:419)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:388)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler.runCodegen$cli(KotlinToJVMBytecodeCompiler.kt:431)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:95)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:36)
+	at org.jetbrains.kotlin.cli.pipeline.jvm.JvmBackendPipelinePhase.executePhase(JvmBackendPipelinePhase.kt:29)
+	at org.jetbrains.kotlin.cli.pipeline.PipelinePhase.phaseBody(PipelinePhase.kt:68)
+	at org.jetbrains.kotlin.cli.pipeline.PipelinePhase.phaseBody(PipelinePhase.kt:58)
+	at org.jetbrains.kotlin.config.phaser.NamedCompilerPhase.invoke(CompilerPhase.kt:102)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:22)
+	at org.jetbrains.kotlin.config.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:53)
+	at org.jetbrains.kotlin.cli.pipeline.AbstractCliPipeline.runPhasedPipeline(AbstractCliPipeline.kt:109)
+	at org.jetbrains.kotlin.cli.pipeline.AbstractCliPipeline.execute(AbstractCliPipeline.kt:68)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecutePhased(K2JVMCompiler.kt:78)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecutePhased(K2JVMCompiler.kt:44)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:90)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.exec(CLICompiler.kt:352)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunnerBase.runCompiler(IncrementalJvmCompilerRunnerBase.kt:175)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunnerBase.runCompiler(IncrementalJvmCompilerRunnerBase.kt:38)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:504)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:421)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileNonIncrementally(IncrementalCompilerRunner.kt:306)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:133)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:679)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:93)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1806)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.jetbrains.kotlin.codegen.CompilationException: Back-end (JVM) Internal error: Couldn't inline method call: CALL 'public final fun Column$default (modifier: androidx.compose.ui.Modifier?, verticalArrangement: androidx.compose.foundation.layout.Arrangement.Vertical?, horizontalAlignment: androidx.compose.ui.Alignment.Horizontal?, content: @[Composable] @[ExtensionFunctionType] kotlin.Function1<androidx.compose.foundation.layout.ColumnScope, kotlin.Unit>, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.Unit [inline] declared in androidx.compose.foundation.layout.ColumnKt' type=kotlin.Unit origin=DEFAULT_DISPATCH_CALL
+Method: null
+File is unknown
+The root cause java.lang.IllegalStateException was thrown at: org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.getMethodNode(SourceCompilerForInline.kt:129)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genInlineCall(IrInlineCodegen.kt:82)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCallGenerator.genCall(IrInlineCallGenerator.kt:36)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:586)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:527)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:541)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.visitors.IrVisitor.visitBlock(IrVisitor.kt:122)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:413)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.expressions.IrBlock.accept(IrBlock.kt:18)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:527)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:532)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:135)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:233)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:126)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	... 45 more
+Caused by: java.lang.IllegalStateException: couldn't find inline method Landroidx/compose/foundation/layout/ColumnKt;.Column$default(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/layout/Arrangement$Vertical;Landroidx/compose/ui/Alignment$Horizontal;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.getMethodNode(SourceCompilerForInline.kt:129)
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.loadCompiledInlineFunction$lambda$2(SourceCompilerForInline.kt:98)
+	at org.jetbrains.kotlin.codegen.inline.InlineCache.computeMethodBytes(InlineCache.kt:90)
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.loadCompiledInlineFunction(SourceCompilerForInline.kt:93)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.compileInlineFunction(IrSourceCompilerForInline.kt:96)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genInlineCall(IrInlineCodegen.kt:65)
+	... 63 more
+
+
