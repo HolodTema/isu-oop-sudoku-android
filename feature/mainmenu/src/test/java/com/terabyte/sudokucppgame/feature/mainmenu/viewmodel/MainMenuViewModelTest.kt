@@ -6,6 +6,7 @@ import com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect
 import com.terabyte.sudokucppgame.feature.mainmenu.intent.MainMenuIntent
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -39,17 +40,11 @@ class MainMenuViewModelTest {
         viewModel.handleIntent(onDifficultySelectedIntent)
 
         // act
-        val listEffects = mutableListOf<MainMenuEffect>()
-        val job = launch(UnconfinedTestDispatcher()) {
-            viewModel.effect.collect {
-                listEffects.add(it)
-            }
+        val deferredEffect = async(UnconfinedTestDispatcher()) {
+            viewModel.effect.first()
         }
         viewModel.handleIntent(onButtonPlayClickedIntent)
-        // we wait for 100ms to get time to collect effects to the list
-        delay(100)
-        job.cancel()
-        val effect = listEffects.first()
+        val effect = deferredEffect.await()
 
         // assert
         assert(effect is MainMenuEffect.NavigateToGameEffect)

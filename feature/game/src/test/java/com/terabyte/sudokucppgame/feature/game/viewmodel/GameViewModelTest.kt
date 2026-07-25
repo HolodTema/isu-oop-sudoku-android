@@ -87,16 +87,11 @@ class GameViewModelTest {
         val intent = GameIntent.OnBackToMainMenuIntent
 
         // act
-        val listEffects = mutableListOf<GameEffect>()
-        val job = launch(UnconfinedTestDispatcher()) {
-            viewModel.effect.collect {
-                listEffects.add(it)
-            }
+        val deferredEffect = async(UnconfinedTestDispatcher()) {
+            viewModel.effect.first()
         }
         viewModel.handleIntent(intent)
-        delay(100)
-        job.cancel()
-        val effect = listEffects.first()
+        val effect = deferredEffect.await()
 
         // assert
         assert(effect is GameEffect.OnNavigateToMainMenuEffect)

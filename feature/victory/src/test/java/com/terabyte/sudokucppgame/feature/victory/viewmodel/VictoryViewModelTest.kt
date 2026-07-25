@@ -7,7 +7,9 @@ import androidx.lifecycle.SavedStateHandle
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
@@ -49,16 +51,11 @@ class VictoryViewModelTest {
         val intent = VictoryIntent.OnBackToMainMenuIntent
 
         // act
-        val listEffects = mutableListOf<VictoryEffect>()
-        val job = launch(UnconfinedTestDispatcher()) {
-            viewModel.effect.collect {
-                listEffects.add(it)
-            }
+        val deferredEffect = async(UnconfinedTestDispatcher()) {
+            viewModel.effect.first()
         }
         viewModel.handleIntent(intent)
-        delay(100)
-        job.cancel()
-        val effect = listEffects.first()
+        val effect = deferredEffect.await()
 
         // assert
         assert(effect is VictoryEffect.OnNavigateToMainMenu)
