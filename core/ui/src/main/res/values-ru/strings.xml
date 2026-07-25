@@ -7,11 +7,16 @@
     <string name="difficulty_level_hard">Сложный</string>
     <string name="play">Играть</string>
 
-    <string name="game_header">Судоку: %s уровень</string>
+    <string name="game_header_easy">Судоку: легкий уровень</string>
+    <string name="game_header_medium">Судоку: средний уровень</string>
+    <string name="game_header_hard">Судоку: сложный уровень</string>
     <string name="game_amount_mistakes">Ошибки: %d</string>
     <string name="toast_right_turn">Верно!</string>
     <string name="toast_mistake_turn">Неверно!</string>
     <string name="victory">Победа</string>
-    <string name="victory_description">Вы решили %s судоку, допустив %d ошибок!</string>
+    <string name="victory_description_easy">Вы решили судоку легкого уровня, допустив %d ошибок!</string>
+    <string name="victory_description_medium">Вы решили среднего уровня, допустив %d ошибок!</string>
+    <string name="victory_description_hard">Вы решили судоку сложного уровня, допустив %d ошибок!</string>
+
     <string name="go_to_main_menu">В главное меню</string>
 </resources>

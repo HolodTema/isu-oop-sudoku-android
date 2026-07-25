@@ -1,5 +1,6 @@
 package com.terabyte.sudokucppgame.feature.game.screen
 
+import android.R.attr.text
 import android.content.res.Configuration
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -29,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -44,6 +46,7 @@ import com.terabyte.panopticum.core.ui.theme.Dimen
 import com.terabyte.sudokucppgame.core.domain.model.GameCell
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.core.domain.model.GameField
+import com.terabyte.sudokucppgame.core.ui.R
 import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
 import com.terabyte.sudokucppgame.feature.game.state.GameState
@@ -59,6 +62,8 @@ fun GameScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
+    val strToastRightTurn = stringResource(R.string.toast_right_turn)
+    val strToastMistakeTurn = stringResource(R.string.toast_mistake_turn)
     LaunchedEffect(Unit) {
         Timber.d("Check out to GameScreen")
         viewModel.effect.collect {
@@ -72,11 +77,11 @@ fun GameScreen(
                 }
 
                 is GameEffect.OnShowToastMistakeEffect -> {
-                    Toast.makeText(context, "Mistake!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, strToastMistakeTurn, Toast.LENGTH_SHORT).show()
                 }
 
                 is GameEffect.OnShowToastRightTurnEffect -> {
-                    Toast.makeText(context, "Right!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, strToastRightTurn, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -204,13 +209,25 @@ fun GameHeader(difficulty: GameDifficulty, amountMistakes: Int, onButtonBackClic
         ) {
             AppIconButton(AppIcons.Back, onButtonBackClicked)
             LargeTitleText(
-                text = "Sudoku: ${difficulty.name} difficulty",
+                text = when (difficulty) {
+                    GameDifficulty.EASY -> {
+                        stringResource(R.string.game_header_easy)
+                    }
+
+                    GameDifficulty.MEDIUM -> {
+                        stringResource(R.string.game_header_medium)
+                    }
+
+                    GameDifficulty.HARD -> {
+                        stringResource(R.string.game_header_hard)
+                    }
+                },
                 modifier = Modifier
                     .weight(1f)
             )
         }
         LargeBodyText(
-            text = "Mistakes: ${amountMistakes}"
+            text = stringResource(R.string.game_amount_mistakes, amountMistakes)
         )
     }
 }

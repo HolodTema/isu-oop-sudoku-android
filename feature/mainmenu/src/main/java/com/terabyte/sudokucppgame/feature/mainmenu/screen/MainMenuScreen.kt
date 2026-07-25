@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -24,6 +25,7 @@ import com.terabyte.panopticum.core.ui.component.text.LargeDisplayText
 import com.terabyte.panopticum.core.ui.component.text.MediumTitleText
 import com.terabyte.panopticum.core.ui.theme.Dimen
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
+import com.terabyte.sudokucppgame.core.ui.R
 import com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect
 import com.terabyte.sudokucppgame.feature.mainmenu.intent.MainMenuIntent
 import com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel
@@ -56,7 +58,7 @@ fun MainMenuScreen(
             .padding(Dimen.paddingLarge)
     ) {
         LargeDisplayText(
-            text = "Sudoku",
+            text = stringResource(R.string.main_menu_app_name),
             modifier = Modifier
                 .padding(bottom = Dimen.paddingMedium)
         )
@@ -71,7 +73,7 @@ fun MainMenuScreen(
                 .fillMaxWidth()
         ) {
             MediumTitleText(
-                text = "Choose difficulty level:",
+                text = stringResource(R.string.main_menu_choose_difficulty_level),
                 modifier = Modifier
                     .padding(bottom = Dimen.paddingMedium)
             )
@@ -82,7 +84,7 @@ fun MainMenuScreen(
                     .fillMaxWidth()
             ) {
                 AppButton(
-                    text = "Easy",
+                    text = stringResource(R.string.difficulty_level_easy),
                     onClick = {
                         viewModel.handleIntent(
                             MainMenuIntent.OnDifficultySelectedIntent(
@@ -97,7 +99,7 @@ fun MainMenuScreen(
                     }
                 )
                 AppButton(
-                    text = "Medium",
+                    text = stringResource(R.string.difficulty_level_medium),
                     onClick = {
                         viewModel.handleIntent(
                             MainMenuIntent.OnDifficultySelectedIntent(
@@ -112,7 +114,7 @@ fun MainMenuScreen(
                     }
                 )
                 AppButton(
-                    text = "Hard",
+                    text = stringResource(R.string.difficulty_level_hard),
                     onClick = {
                         viewModel.handleIntent(
                             MainMenuIntent.OnDifficultySelectedIntent(
@@ -130,7 +132,7 @@ fun MainMenuScreen(
         }
 
         PrimaryButton(
-            text = "Play",
+            text = stringResource(R.string.play),
             onClick = {
                 viewModel.handleIntent(MainMenuIntent.OnButtonPlayClickedIntent)
             }
