@@ -18,8 +18,12 @@ class TimberInitializer : Initializer<Unit> {
             Timber.d("TimberInitializer worked from androidx-startup-library")
         }
         else {
-            // do nothing
-            // no logs in release version
+            // in release build variant we will also send all the Timber.e() calls to
+            // Firebase Crashlytics
+            //
+            // PS. Anyway, Firebase Crashlytics also sends all the ANR and app-crashes in any
+            // build type
+            Timber.plant(CrashlyticsTimberTree())
         }
     }
 
