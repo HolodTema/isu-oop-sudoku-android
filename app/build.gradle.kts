@@ -3,7 +3,8 @@ import java.io.FileInputStream
 
 val keystoreProperties = Properties()
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
-if (keystorePropertiesFile.exists()) {
+val hasKeystoreFile = keystorePropertiesFile.exists()
+if (hasKeystoreFile) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
@@ -34,16 +35,24 @@ android {
 
     signingConfigs {
         // to automatic creation of keystore-certificate (.jks file) and singing release AAB or APK
-        create("release") {
-            storeFile = file(keystoreProperties.getProperty("storeFile"))
-            storePassword = keystoreProperties.getProperty("storePassword")
-            keyAlias = keystoreProperties.getProperty("keyAlias")
-            keyPassword = keystoreProperties.getProperty("keyPassword")
+        //
+        // we need to create signing configuration only if there is keystore.properties file
+        // so, we use if(hasKeystoreFile) not to break CI/CD GithubActions process
+        // because of in GitHub Actions we have no keystore.properties file
+        if (hasKeystoreFile) {
+            create("release") {
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
         }
     }
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            if (hasKeystoreFile) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
