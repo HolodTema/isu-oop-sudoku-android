@@ -65,4 +65,10 @@ dependencies {
 
     // Navigation Component
     implementation(libs.androidx.navigation.compose)
+
+    // Timber for logging
+    implementation(libs.timber)
+
+    // Androidx Startup library
+    implementation(libs.androidx.startup.runtime)
 }
