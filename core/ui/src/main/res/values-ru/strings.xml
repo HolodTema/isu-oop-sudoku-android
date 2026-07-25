@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_menu_app_name">Судоку</string>
+    <string name="main_menu_choose_difficulty_level">Выберите уровень сложности:</string>
+    <string name="difficulty_level_easy">Легкий</string>
+    <string name="difficulty_level_medium">Средний</string>
+    <string name="difficulty_level_hard">Сложный</string>
+    <string name="play">Играть</string>
+
+    <string name="game_header_easy">Судоку: легкий уровень</string>
+    <string name="game_header_medium">Судоку: средний уровень</string>
+    <string name="game_header_hard">Судоку: сложный уровень</string>
+    <string name="game_amount_mistakes">Ошибки: %d</string>
+    <string name="toast_right_turn">Верно!</string>
+    <string name="toast_mistake_turn">Неверно!</string>
+    <string name="victory">Победа</string>
+    <string name="victory_description_easy">Вы решили судоку легкого уровня, допустив %d ошибок!</string>
+    <string name="victory_description_medium">Вы решили среднего уровня, допустив %d ошибок!</string>
+    <string name="victory_description_hard">Вы решили судоку сложного уровня, допустив %d ошибок!</string>
+
+    <string name="go_to_main_menu">В главное меню</string>
+</resources>
