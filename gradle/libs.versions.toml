@@ -20,6 +20,9 @@ kotlinx = "1.11.0"
 truth = "1.4.5"
 androidxStartup = "1.2.0"
 timber = "5.0.1"
+googleServices = "4.5.0"
+firebaseBom = "34.16.0"
+firebaseCrashlyticsPlugin = "3.0.7"
 
 
 
@@ -60,6 +63,12 @@ truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 androidx-startup-runtime = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
 # Timber
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+# Firebase BoM (Bill of Models) to sync all the firebase-dependencies to the same version
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+# Firebase Crashlytics to send crash reports to firebase account
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+# Firebase Analytics to send important user actions in the app to firebase account
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
 
 
 
@@ -72,3 +81,7 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 # Internal Gradle plugin to make one big html-report file for all the Unit-tests of the project
 test-report-aggregation = { id = "test-report-aggregation" }
+# Google Services plugin for Firebase working
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+# Firebase Crashlytics plugin
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
