@@ -19,6 +19,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          cache: 'gradle'
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -27,15 +28,21 @@ jobs:
         run: |
           sdkmanager "ndk;25.1.8937393" "cmake;3.22.1"
 
-      - name: Cache gradle dependencies to speed up build time
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: ${{ runner.os }}-gradle-
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
-      - name:
+      - name: Run all the Unit tests
+        run: ./gradlew test --continue --stacktrace
+
+      - name: Upload possible failed Unit-test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-reports
+          path: '**/build/reports/tests/'
+  
+      - name: Check application build
+        if: always()
         run: ./gradlew assembleDebug --stacktrace
 
+      

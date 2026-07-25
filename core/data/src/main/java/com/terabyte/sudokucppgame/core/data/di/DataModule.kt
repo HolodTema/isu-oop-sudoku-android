@@ -1,6 +1,7 @@
 package com.terabyte.sudokucppgame.core.data.di
 
 import com.terabyte.sudokucppgame.core.data.jni.SudokuNative
+import com.terabyte.sudokucppgame.core.data.jni.SudokuNativeImpl
 import com.terabyte.sudokucppgame.core.data.repository.SudokuRepositoryImpl
 import com.terabyte.sudokucppgame.core.domain.repository.SudokuRepository
 import dagger.Module
@@ -16,7 +17,7 @@ object DataModule {
     @Provides
     @Singleton
     fun provideSudokuNative(): SudokuNative {
-        return SudokuNative()
+        return SudokuNativeImpl()
     }
 
     @Provides
