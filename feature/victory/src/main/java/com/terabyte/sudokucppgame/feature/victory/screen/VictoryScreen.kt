@@ -16,6 +16,7 @@ import com.terabyte.panopticum.core.ui.component.text.LargeDisplayText
 import com.terabyte.panopticum.core.ui.theme.Dimen
 import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.feature.victory.viewmodel.VictoryViewModel
+import timber.log.Timber
 
 
 @Composable
@@ -28,6 +29,8 @@ fun VictoryScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
+        Timber.d("Check out to VictoryScreen")
+
         viewModel.effect.collect {
             when (it) {
                 VictoryEffect.OnNavigateToMainMenu -> {

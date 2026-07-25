@@ -48,6 +48,7 @@ import com.terabyte.sudokucppgame.feature.game.effect.GameEffect
 import com.terabyte.sudokucppgame.feature.game.intent.GameIntent
 import com.terabyte.sudokucppgame.feature.game.state.GameState
 import com.terabyte.sudokucppgame.feature.game.viewmodel.GameViewModel
+import timber.log.Timber
 
 @Composable
 fun GameScreen(
@@ -59,6 +60,7 @@ fun GameScreen(
 
     val context = LocalContext.current
     LaunchedEffect(Unit) {
+        Timber.d("Check out to GameScreen")
         viewModel.effect.collect {
             when (it) {
                 GameEffect.OnNavigateToMainMenuEffect -> {
