@@ -27,6 +27,7 @@ import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.feature.mainmenu.effect.MainMenuEffect
 import com.terabyte.sudokucppgame.feature.mainmenu.intent.MainMenuIntent
 import com.terabyte.sudokucppgame.feature.mainmenu.viewmodel.MainMenuViewModel
+import timber.log.Timber
 
 @Composable
 fun MainMenuScreen(
@@ -36,6 +37,8 @@ fun MainMenuScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
+        Timber.d("Check out to MainMenuScreen")
+
         viewModel.effect.collect { effect ->
             when (effect) {
                 is MainMenuEffect.NavigateToGameEffect -> {

@@ -15,6 +15,7 @@ import com.terabyte.sudokucppgame.core.domain.model.GameDifficulty
 import com.terabyte.sudokucppgame.feature.game.screen.GameScreen
 import com.terabyte.sudokucppgame.feature.mainmenu.screen.MainMenuScreen
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

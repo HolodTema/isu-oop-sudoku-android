@@ -59,4 +59,7 @@ dependencies {
 
     // Navigation Compose to use navController inside Screen function
     implementation(libs.androidx.navigation.compose)
+
+    // Timber for logs
+    implementation(libs.timber)
 }
